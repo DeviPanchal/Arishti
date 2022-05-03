@@ -1,0 +1,37 @@
+<!-- <div class="h-full"> -->
+  <div class="justify-center text-center text-xl">
+    <b>
+      Login
+    </b>
+  </div>
+  <mat-divider></mat-divider>
+  <form [formGroup]="nameForm" class="mt-4 h-full bg-white"> 
+    <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label style="color: white;">User Name</mat-label> <input matInput type="text" formControlName="userName"> 
+        <mat-error *ngIf="userName.hasError('required')">
+          This field is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field style="width: 100%;" appearance="fill">
+        <mat-label style="color: white;">Password</mat-label> <input matInput type="text" (keypress)="close()" formControlName="password"> 
+        <mat-error *ngIf="password.hasError('required')">
+          This field is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> 
+
+      <table style="width: 100%;" class="justify-center item-center">
+        <tr>
+          <td>
+            <button mat-raised-button [disabled]="!nameForm.valid" (click)="submit()">submit</button>
+          </td>
+          <td>
+            <button mat-raised-button (click)="hint()">hint</button>
+          </td>
+        </tr>
+      </table>
+      <p *ngIf="wrongPassword" style="color: red;">Denined.....!</p>
+      <p *ngIf="showHint"> I am Password HahAhha....!</p>
+      
+</form>
+<!-- </div> -->
